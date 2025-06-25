@@ -1,0 +1,139 @@
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  background: #f0f2f5;
+  color: #222;
+}
+
+/* Header and footer */
+header, footer {
+  background: linear-gradient(135deg, #004d99, #007acc);
+  color: white;
+  text-align: center;
+  padding: 1.2rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+footer {
+  margin-top: auto;
+}
+
+/* Layout */
+.grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  flex: 1;
+}
+
+section {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+section:hover {
+  transform: translateY(-5px);
+}
+
+/* Form styling */
+.form-section form label {
+  display: block;
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #007acc;
+}
+
+/* Buttons */
+button {
+  padding: 0.7rem 1.2rem;
+  background: #007acc;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #005f99;
+}
+
+/* Message text */
+.msg {
+  margin-top: 0.8rem;
+  font-weight: bold;
+}
+
+/* To-do list */
+.todo-section input[type="text"] {
+  margin-bottom: 0.8rem;
+}
+
+ul {
+  list-style-type: none;
+  margin-top: 1rem;
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 0.7rem;
+  background: #e6f2ff;
+  padding: 0.7rem;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s ease;
+}
+
+li:hover {
+  background: #d0e9ff;
+}
+
+li button {
+  background: crimson;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  border-radius: 5px;
+}
+
+li button:hover {
+  background: darkred;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .grid-layout {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+}

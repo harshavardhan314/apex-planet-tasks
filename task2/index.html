@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Task 2 – Web Project</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <nav>
+      <h1>My Web Project</h1>
+    </nav>
+  </header>
+
+  <main class="grid-layout">
+    <!-- Contact Form -->
+    <section class="form-section">
+      <h2>Contact Form</h2>
+      <form id="contactForm">
+        <label>Name:
+          <input type="text" id="name" required />
+        </label>
+        <label>Email:
+          <input type="email" id="email" required />
+        </label>
+        <button type="submit">Submit</button>
+        <p id="formMsg" class="msg"></p>
+      </form>
+    </section>
+
+    <!-- To-Do List -->
+    <section class="todo-section">
+      <h2>To-Do List</h2>
+      <input type="text" id="todoInput" placeholder="Add a task..." />
+      <button onclick="addTask()">Add Task</button>
+      <ul id="todoList"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Task 2 – Apex Planet</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
