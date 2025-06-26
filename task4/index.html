@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Page</title>
+  <style>
+    .product { border: 1px solid #ccc; padding: 10px; margin: 10px; border-radius: 5px; }
+    .filters { display: flex; gap: 10px; margin-bottom: 20px; }
+    .products { display: flex; flex-wrap: wrap; gap: 20px; }
+  </style>
+</head>
+<body>
+  <h1>🛍 Product Store</h1>
+
+  <div class="filters">
+    <select id="categoryFilter">
+      <option value="all">All</option>
+      <option value="tech">Tech</option>
+      <option value="fashion">Fashion</option>
+    </select>
+
+    <select id="sort">
+      <option value="default">Sort</option>
+      <option value="low">Price: Low to High</option>
+      <option value="high">Price: High to Low</option>
+    </select>
+  </div>
+
+  <div class="products" id="productList"></div>
+
+  <script>
+    const products = [
+      { name: "Laptop", price: 600, category: "tech" },
+      { name: "Shoes", price: 100, category: "fashion" },
+      { name: "Smartphone", price: 400, category: "tech" },
+      { name: "Jacket", price: 150, category: "fashion" },
+    ];
+
+    const productList = document.getElementById("productList");
+
+    function displayProducts(data) {
+      productList.innerHTML = "";
+      data.forEach(p => {
+        productList.innerHTML += `
+          <div class="product">
+            <h3>${p.name}</h3>
+            <p>💰 $${p.price}</p>
+            <p>📦 ${p.category}</p>
+          </div>`;
+      });
+    }
+
+    document.getElementById("categoryFilter").onchange = filterAndSort;
+    document.getElementById("sort").onchange = filterAndSort;
+
+    function filterAndSort() {
+      let data = [...products];
+      const category = document.getElementById("categoryFilter").value;
+      const sort = document.getElementById("sort").value;
+
+      if (category !== "all") data = data.filter(p => p.category === category);
+      if (sort === "low") data.sort((a, b) => a.price - b.price);
+      if (sort === "high") data.sort((a, b) => b.price - a.price);
+
+      displayProducts(data);
+    }
+
+    displayProducts(products);
+  </script>
+</body>
+</html>

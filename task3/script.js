@@ -1,13 +1,15 @@
+
+
 async function getWeather() {
   const city = document.getElementById("cityInput").value.trim();
-  const apiKey = "YOUR_API_KEY"; // Replace with your OpenWeatherMap API key
+  const APIKey = "198a218e2881f6e4599c877cf043c707"; // Replace with your actual key
 
   if (!city) {
     alert("Please enter a city name.");
     return;
   }
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${APIKey}&units=metric`;
 
   try {
     const response = await fetch(url);
@@ -30,3 +32,4 @@ async function getWeather() {
     document.getElementById("weatherResult").innerHTML = "Error fetching data.";
   }
 }
+
